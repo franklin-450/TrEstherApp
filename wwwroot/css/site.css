@@ -1,0 +1,140 @@
+/* site.css — polished, readable, accessible theme */
+/* Typography */
+:root{
+  --bg-1: #0a0f3c;
+  --bg-2: #2b2d85;
+  --accent: #ffd700;
+  --muted: rgba(255,255,255,0.78);
+  --glass: rgba(255,255,255,0.04);
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.5;
+}
+
+/* NAV */
+.site-nav{
+  background: linear-gradient(180deg, rgba(2,6,23,0.45), rgba(2,6,23,0.15));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.brand-mark {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* HERO */
+.hero{
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  padding: 48px 0;
+}
+.quote-box{
+  display:inline-block;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.quote-text {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.05rem;
+}
+.quote-author { color: var(--muted); font-size: .95rem; margin-top: 6px; display:block; }
+
+.hero-title{
+  font-size: clamp(1.8rem, 4.6vw, 3.2rem);
+  line-height: 1.02;
+  font-weight: 800;
+  margin: 12px 0;
+  color: #ffffff;
+}
+.hero-sub{
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+/* device image */
+.device-img{
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 22px 60px rgba(2,6,23,0.6);
+  transform: translateY(-6px);
+  transition: transform .45s ease;
+}
+.device-img:hover{ transform: translateY(-18px) rotate(-1deg); }
+
+/* features */
+.feature, .project-card, .wall-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* timeline */
+.timeline{ position: relative; padding-left: 1rem; margin-top: 1rem; }
+.timeline::before{
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), rgba(255,183,3,0.3));
+  opacity: 0.95;
+}
+.timeline-item{
+  position: relative; padding: 1rem 1rem 1rem 3rem; margin-bottom: 1rem;
+}
+.timeline-item::before{
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 18px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(255,183,3,0.08);
+}
+
+/* gratitude wall tweaks */
+.wall-card {
+  min-height: 120px;
+}
+
+/* footer */
+footer {
+  border-top: 1px solid rgba(255,255,255,0.02);
+  padding: 18px 0;
+}
+
+/* floating action button for mobile */
+.fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  border-radius: 999px;
+  padding: 14px 16px;
+  background: var(--accent);
+  color: #072033;
+  box-shadow: 0 12px 30px rgba(2,6,23,0.6);
+  z-index: 1050;
+}
+
+/* accessibility */
+:focus { outline: 3px solid rgba(255,183,3,0.18); outline-offset: 3px; }
+
+/* responsive adjustments */
+@media (max-width: 767.98px) {
+  .hero { padding: 28px 0; }
+  .device-img { display: none; }
+}
