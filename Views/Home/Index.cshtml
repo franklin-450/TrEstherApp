@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Thank You, Tr. Esther";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -25,38 +25,116 @@
       </div>
     </div>
   </header>
-  <section id="tribute" class="py-5 bg-dark text-light text-center">
-    <div class="container">
-        <h2 class="text-warning mb-4"><i class="bi bi-heart-fill"></i> A Letter from My Heart</h2>
-        <div class="mx-auto" style="max-width:800px;">
-            <p class="lead">
+<section id="tribute" class="py-5 bg-dark text-light text-center position-relative overflow-hidden">
+    <!-- Floating animated stars background -->
+    <div class="starfield"></div>
+
+    <div class="container position-relative">
+        <h2 class="text-warning mb-4 display-5 fw-bold fade-in">
+            <i class="bi bi-heart-fill"></i> A Letter from My Heart
+        </h2>
+
+        <div class="mx-auto glass-card p-4 rounded-4 shadow-lg fade-in" style="max-width: 850px;">
+            <p class="lead mb-4">
                 Dear <strong>Tr. Esther</strong>,
             </p>
-            <p class="fs-5">
-                Some gifts are wrapped in boxes — but yours came wrapped in belief.  
-                You didn’t just hand me a laptop; you handed me a future.  
-                You saw a spark in a student and chose to fan it into a flame.  
+
+            <p class="fs-5 lh-lg">
+                Some gifts are wrapped in boxes — but yours came wrapped in <span class="text-warning fw-semibold">belief</span>.  
+                You didn’t just hand me a laptop; you handed me a <strong>future</strong>.  
+                You saw a spark in a dreamer and chose to fan it into a flame that will never fade.
             </p>
-            <p class="fs-5">
+
+            <p class="fs-5 lh-lg">
                 Every time I open that laptop, I don’t just see code —  
-                I see your faith. I see your kindness.  
-                I see the day my dreams found wings.
+                I see <span class="text-info">faith</span>. I see <span class="text-success">kindness</span>.  
+                I see the moment my dreams found wings.
             </p>
-            <p class="fs-5">
-                You didn’t just help me; you rewrote my story.  
-                You taught me that greatness starts with one act of grace.  
-                You believed when the world was silent — and that changed everything.
+
+            <p class="fs-5 lh-lg">
+                You didn’t just help me; you <strong>rewrote my story</strong>.  
+                You proved that greatness begins with one selfless act of grace.  
+                You believed in me when the world was silent — and that belief changed everything.
             </p>
+
             <p class="fw-bold fs-4 text-warning mt-4">
                 This page will live forever, because your kindness deserves to.
             </p>
-            <p class="fst-italic text-secondary">
+
+            <p class="fst-italic text-secondary mt-4">
                 — With endless gratitude,<br>
-                <span class="text-light">Your student, Wizard Franky</span>
+                <span class="text-light fw-semibold">Your student, Wizard Franky</span>
             </p>
+
+            <!-- Soft background piano -->
+            <audio autoplay loop>
+                <source src="~/audio/piano.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </div>
+
+    <!-- Custom CSS -->
+    <style>
+        /* Starfield background effect */
+        .starfield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .starfield::before, .starfield::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            width: 100%;
+            height: 200%;
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            animation: starScroll 120s linear infinite;
+            opacity: 0.6;
+        }
+
+        .starfield::after {
+            animation-duration: 240s;
+            opacity: 0.3;
+        }
+
+        @@keyframes starScroll {
+            from { transform: translateY(0); }
+            to { transform: translateY(100%); }
+        }
+
+        /* Glass card style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            animation: fadeIn 2s ease forwards;
+            opacity: 0;
+        }
+
+        @@keyframes fadeIn {
+            to { opacity: 1; transform: none; }
+            from { opacity: 0; transform: translateY(30px); }
+        }
+
+        /* Responsive design */
+        @@media (max-width: 768px) {
+            h2 { font-size: 1.8rem; }
+            .fs-5 { font-size: 1.05rem; }
+        }
+    </style>
 </section>
+
 
   <!-- JOURNEY -->
   <section id="journey" class="py-5">
